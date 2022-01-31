@@ -5,6 +5,7 @@ import {CryptingUpApiService} from "./service/crypting-up-api.service";
 import {columns} from "./data";
 import {MatDialog} from "@angular/material/dialog";
 import {SpecificAssetModalComponent} from '../../components/specific-asset-modal/specific-asset-modal.component';
+import {ThemePalette} from "@angular/material/core";
 
 @Component({
   selector: 'app-details',
