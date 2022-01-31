@@ -3,6 +3,8 @@ import {PageEvent} from "@angular/material/paginator";
 import {AllAssetsModel, AssetsModel} from "./model/assets-model";
 import {CryptingUpApiService} from "./service/crypting-up-api.service";
 import {columns} from "./data";
+import {MatDialog} from "@angular/material/dialog";
+import {SpecificAssetModalComponent} from '../../components/specific-asset-modal/specific-asset-modal.component';
 
 @Component({
   selector: 'app-details',
@@ -11,9 +13,10 @@ import {columns} from "./data";
 })
 export class DetailsComponent implements OnInit {
   public data?: AssetsModel;
-  public length = 10;
-  public pageSize = 10;
+  public length = 1000;
+  public pageSize = 20;
   public pageSizeOptions: number[] = [5, 10, 25, 50];
+  public pageIndex = 1;
   public pageEvent: PageEvent | undefined;
   public ELEMENT_DATA: AllAssetsModel[] = [];
   columns = columns;
@@ -23,15 +26,18 @@ export class DetailsComponent implements OnInit {
 
 
   constructor(
-    private cryptingService: CryptingUpApiService
+    private cryptingService: CryptingUpApiService,
+    private dialog: MatDialog
   ) { }
 
-  ngOnInit(){
-    this.getAllAssets(this.pageSize, 1);
+ async ngOnInit(){
+    this.data = await this.cryptingService.getNumberAllAssets();
+    this.length = this.data?.next || 1
+    this.getAllAssets(this.pageSize, this.length)
   }
 
-  async getAllAssets(size: number, start: number){
-    this.data = await this.cryptingService.getAllAssets(size, start);
+  async getAllAssets(size: number | undefined, start: number | undefined){
+    this.data = await this.cryptingService.getAllAssets(size || this.pageSize, this.pageSize * (start || 1));
     this.dataSource = this.data?.assets || [];
     this.displayedColumns = this.columns.map(c => c.columnDef);
   }
@@ -41,6 +47,17 @@ export class DetailsComponent implements OnInit {
     if (setPageSizeOptionsInput) {
       this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
+  }
+
+  openModal(assetId: string){
+
+    this.dialog.open(SpecificAssetModalComponent, {
+      width: '60%',
+      height: 'auto',
+      data: {
+        asset_id: assetId
+      }
+    });
   }
 
 }

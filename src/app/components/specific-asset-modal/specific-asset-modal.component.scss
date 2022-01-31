@@ -1,0 +1,90 @@
+header{
+  text-align: center;
+  font-family: Roboto;
+
+  .title{
+    margin: 24px 0 8px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #9c7c25;
+  }
+
+  .description{
+    margin: 8px 1px 32px 2px;
+    font-size: 16px;
+    opacity: 0.5;
+  }
+}
+
+.update-info{
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+
+  .info{
+    margin: 0 20px;
+
+    span{
+      color: #9c7c25
+    }
+  }
+
+}
+
+.content{
+  display: flex;
+  justify-content: space-around;
+  margin: 40px auto;
+
+  .item{
+    margin: 0 10px;
+    text-align: center;
+
+    .info{
+      font-weight: bolder;
+    }
+
+    .value{
+      font-size: 22px;
+    }
+  }
+}
+
+.crypto-description{
+  text-align: center;
+  margin: 40px auto;
+}
+
+.green-status{
+  color: limegreen;
+}
+
+.red-status{
+  color: red;
+}
+
+.btn {
+  text-align: center;
+
+  .close-btn{
+    padding: 10px 15px;
+    width: 30%;
+    color: #9c7c25;
+    font-size: 16px;
+    border: 1px solid #9c7c25 !important;
+    border-radius: 5%;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 40px auto;
+    transition: .3s;
+  }
+}
+
+.close-btn:hover{
+  color: white;
+  background-color: #9c7c25;
+}
+
+
+
+

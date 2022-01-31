@@ -1,3 +1,26 @@
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("assets/creative-background-with-white-lines.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+mat-paginator{
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.mat-option.mat-selected{
+  color: #9c7c25 !important;
+}
+
+.mat-select-value{
+  color: white !important;
+}
+
+.mat-select-arrow{
+  color: white !important;
+}

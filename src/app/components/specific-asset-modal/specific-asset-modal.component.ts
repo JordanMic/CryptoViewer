@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {CryptingUpApiService} from '../../views/details/service/crypting-up-api.service';
+import {SpecAssetDataModel} from '../../views/details/model/spec-asset-data-model';
+import {SpecificAssetsModel} from '../../views/details/model/specific-assets-model';
 
 @Component({
   selector: 'app-specific-asset-modal',
@@ -6,10 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./specific-asset-modal.component.scss']
 })
 export class SpecificAssetModalComponent implements OnInit {
+  public assetData?: SpecificAssetsModel
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA)
+              public data: SpecAssetDataModel,
+              private cryptingService: CryptingUpApiService,
+              private dialogRef: MatDialogRef<SpecificAssetModalComponent>
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+    this.assetData = await this.cryptingService.getSpecificAsset(this.data.asset_id);
   }
 
+  close(){
+    this.dialogRef.close()
+  }
 }

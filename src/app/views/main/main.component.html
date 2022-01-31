@@ -1,8 +1,6 @@
-<div class="container">
-  <mat-paginator [length]="length"
-                 [pageSize]="pageSize"
-                 [pageSizeOptions]="pageSizeOptions"
-                 (page)="pageEvent = $event"
-                 aria-label="Select page">
-  </mat-paginator>
-</div>
+<header>
+  <h1>CryptoViewer</h1>
+  <h2>Stay up to date with cryptocurrency rates</h2>
+</header>
+
+<button (click)="goToDetails()">See more</button>

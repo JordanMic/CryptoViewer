@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PageEvent} from "@angular/material/paginator";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main',
@@ -7,20 +7,15 @@ import {PageEvent} from "@angular/material/paginator";
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  length = 100;
-  pageSize = 10;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
-  pageEvent: PageEvent | undefined;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
+  goToDetails(){
+    this.router.navigate(['details'])
   }
+
 
 }

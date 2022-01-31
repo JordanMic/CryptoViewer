@@ -2,9 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 70px;
+
+  .row{
+    cursor: pointer;
+    transition: .3s;
+  }
 
   table {
     width: 70%;
   }
 }
+
+.row:nth-of-type(even){
+  background-color: #f1f1f1;
+}
+
+.row:hover{
+  cursor: pointer;
+  background-color: #dcd2bc;
+  font-weight: bolder;
+}
+
 

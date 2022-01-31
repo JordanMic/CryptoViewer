@@ -15,12 +15,18 @@ export class CryptingUpApiService {
     private http: HttpClient
   ) { }
 
-   async getAllAssets(size: number,start: number): Promise<AssetsModel | undefined>{
+  async getNumberAllAssets(): Promise<AssetsModel | undefined>{
     let params = new HttpParams();
 
-    params = params.append('secondParameter', size);
-    params = params.append('firstParameter', start);
+    try {
+      return await this.http.get<AssetsModel>(this.urlApi).toPromise();
+    }
+    catch (error){
+      throw error
+    }
+  }
 
+   async getAllAssets(size: number,start: number): Promise<AssetsModel | undefined>{
     try {
       return await this.http.get<AssetsModel>(this.urlApi, { "params": {
         size: size,
@@ -32,9 +38,9 @@ export class CryptingUpApiService {
     }
   }
 
-  async getSpecificAsset(assetId: string): Promise<Observable<SpecificAssetsModel>>{
+  async getSpecificAsset(assetId: string): Promise<SpecificAssetsModel | undefined>{
     try {
-      return await this.http.get<SpecificAssetsModel>(this.urlApi + 'assets/' + assetId )
+      return await this.http.get<SpecificAssetsModel>(this.urlApi + '/' + assetId ).toPromise()
     }
     catch (error){
       throw error

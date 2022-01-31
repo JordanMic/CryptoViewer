@@ -14,6 +14,11 @@ export const columns = [
   {
     columnDef: 'price',
     header: 'Price USD',
-    cell: (element: AllAssetsModel) => `${element.price}`,
+    cell: (element: AllAssetsModel) => `$${element.price.toFixed(2)}`,
+  },
+  {
+    columnDef: 'change 24h',
+    header: 'Change 24h',
+    cell: (element: AllAssetsModel) => `${element.change_24h.toFixed(2)}%`,
   },
 ];

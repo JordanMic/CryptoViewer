@@ -1,1 +1,53 @@
-<p>specific-asset-modal works!</p>
+<header>
+  <p class="title">Info about {{data.asset_id}}</p>
+  <p class="description" *ngIf="assetData?.asset?.name">Full name: {{assetData?.asset?.name}}</p>
+</header>
+
+<div class="content">
+  <div class="item">
+    <p class="info">Price USD: </p>
+    <p class="value">${{(assetData?.asset?.price || 1).toFixed(2)}}</p>
+  </div>
+
+  <div class="item">
+    <p class="info">Change 1h: </p>
+    <p class="value" [ngClass]="(assetData?.asset?.change_1h || 1) > 0 ? 'green-status' : 'red-status'">{{(assetData?.asset?.change_1h || 1).toFixed(2)}}%</p>
+  </div>
+
+  <div class="item">
+    <p class="info">Change 24h: </p>
+    <p class="value" [ngClass]="(assetData?.asset?.change_24h || 1) > 0 ? 'green-status' : 'red-status'">{{(assetData?.asset?.change_24h || 1).toFixed(2)}}%</p>
+  </div>
+
+  <div class="item">
+    <p class="info">Volume 24h: </p>
+    <p class="value">${{(assetData?.asset?.volume_24h || 1).toFixed(3)}}</p>
+  </div>
+
+  <div class="item">
+    <p class="info">Change 7d: </p>
+    <p class="value" [ngClass]="(assetData?.asset?.change_7d || 1) > 0 ? 'green-status' : 'red-status'">{{(assetData?.asset?.change_7d || 1).toFixed(2)}}%</p>
+  </div>
+</div>
+
+<div class="crypto-description">
+  <p style="color: #9c7c25">Description:</p>
+  <p>{{assetData?.asset?.description}}</p>
+  <p *ngIf="assetData?.asset?.description === ''">No description of this asset</p>
+</div>
+
+<div class="update-info">
+  <p class="info"><span>Created at: </span>{{assetData?.asset?.created_at | date: 'dd.MM.yyyy HH:mm'}}</p>
+  <p class="info"><span>Updated at: </span>{{assetData?.asset?.updated_at | date: 'dd.MM.yyyy HH:mm'}}</p>
+</div>
+
+<div class="btn">
+  <button class="close-btn" (click)="close()">Close</button>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+header{
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  margin: 50px 60px;
+  color: #9c7c25;
+  animation: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  h1{
+    font-size: 68px;
+    font-weight: bolder;
+  }
+
+  h2{
+    margin-top: 20px;
+  }
+}
+
+button{
+  position: absolute;
+  top: 45%;
+  left: 10%;
+  margin: 60px;
+  background-color: #9c7c25;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10%;
+  border-style: none;
+  animation: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  cursor: pointer;
+}
+
