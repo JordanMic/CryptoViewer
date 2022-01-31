@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {CryptingUpApiService} from '../../views/details/service/crypting-up-api.service';
-import {SpecAssetDataModel} from '../../views/details/model/spec-asset-data-model';
-import {SpecificAssetsModel} from '../../views/details/model/specific-assets-model';
+import {SpecAssetDataModel} from './model/spec-asset-data-model';
+import {SpecificAssetsModel} from './model/specific-assets-model';
 
 @Component({
   selector: 'app-specific-asset-modal',

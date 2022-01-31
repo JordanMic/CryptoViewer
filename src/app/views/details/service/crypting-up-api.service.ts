@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {AssetsModel} from "../model/assets-model";
-import {SpecificAssetsModel} from "../model/specific-assets-model";
+import {SpecificAssetsModel} from "../../../components/specific-asset-modal/model/specific-assets-model";
 import {Observable} from "rxjs";
 
 @Injectable({
